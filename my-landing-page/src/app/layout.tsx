@@ -1,22 +1,40 @@
-export default function Home() {
+import "./globals.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "KSL Prep Assistant",
+  description: "Your AI-powered study companion for KSL preparation",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-8">
-      <h1 className="text-4xl font-bold mb-6 text-gray-800">
-        Welcome to KSL Prep Assistant
-      </h1>
-      <p className="text-lg text-gray-600 mb-8 text-center max-w-2xl">
-        Your AI-powered study companion for KSL preparation.  
-        Practice questions, flashcards, and curriculum support all in one place.
-      </p>
-      <div className="flex gap-4">
-        <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-          Get Started
-        </button>
-        <button className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50">
-          Learn More
-        </button>
-      </div>
-    </main>
+    <html lang="en">
+      <body className="flex flex-col min-h-screen">
+        {/* Header */}
+        <header className="bg-white shadow p-4">
+          <nav className="flex justify-between items-center max-w-6xl mx-auto">
+            <h1 className="text-xl font-bold text-blue-600">KSL Prep Assistant</h1>
+            <div className="space-x-4">
+              <a href="#" className="text-gray-700 hover:text-blue-600">Home</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600">Features</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600">About</a>
+            </div>
+          </nav>
+        </header>
+
+        {/* Main content */}
+        <main className="flex-grow">{children}</main>
+
+        {/* Footer */}
+        <footer className="bg-gray-100 p-4 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} KSL Prep Assistant. All rights reserved.
+        </footer>
+      </body>
+    </html>
   );
 }
 
