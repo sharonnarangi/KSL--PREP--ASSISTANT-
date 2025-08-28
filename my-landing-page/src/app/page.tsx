@@ -1,6 +1,4 @@
-export default function Home() {
-  return (
-    import flashcards from "./components/flashcards";
+import Flashcard from "./components/Flashcard";  // ✅ import moved to top
 
 export default function Home() {
   return (
@@ -21,5 +19,3 @@ export default function Home() {
   );
 }
 
-  
-}
